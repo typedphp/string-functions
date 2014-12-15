@@ -72,4 +72,28 @@ class StringFunctionTest extends Test
         $this->assertTrue(StringFunctions\startsWith("abcdef", "~abc~"));
         $this->assertFalse(StringFunctions\startsWith("abcdef", "~def~"));
     }
+
+    public function testTrim()
+    {
+        $this->assertEquals("abc", StringFunctions\trim(" abc ", " "));
+        $this->assertEquals("abc", StringFunctions\trim(".abc.", "."));
+        $this->assertEquals("abc", StringFunctions\trim(" abc ", "#\\s#"));
+        $this->assertEquals("abc", StringFunctions\trim(".abc.", "#\\.#"));
+    }
+
+    public function testTrimLeft()
+    {
+        $this->assertEquals("abc ", StringFunctions\trimLeft(" abc ", " "));
+        $this->assertEquals("abc.", StringFunctions\trimLeft(".abc.", "."));
+        $this->assertEquals("abc ", StringFunctions\trimLeft(" abc ", "#\\s#"));
+        $this->assertEquals("abc.", StringFunctions\trimLeft(".abc.", "#\\.#"));
+    }
+
+    public function testTrimRight()
+    {
+        $this->assertEquals(" abc", StringFunctions\trimRight(" abc ", " "));
+        $this->assertEquals(".abc", StringFunctions\trimRight(".abc.", "."));
+        $this->assertEquals(" abc", StringFunctions\trimRight(" abc ", "#\\s#"));
+        $this->assertEquals(".abc", StringFunctions\trimRight(".abc.", "#\\.#"));
+    }
 }

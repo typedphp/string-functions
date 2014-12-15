@@ -351,3 +351,66 @@ function splitWithExpression($haystack, $needle, $limit = 0)
 
     return preg_split($needle, $haystack, $limit);
 }
+
+function trim($haystack, $needle)
+{
+    if (isExpression($needle)) {
+        return trimWithExpression($haystack, $needle);
+    }
+
+    return trimWithString($haystack, $needle);
+}
+
+function trimWithString($haystack, $needle)
+{
+    return \trim($haystack, $needle);
+}
+
+function trimWithExpression($haystack, $needle)
+{
+    $pattern = slice($needle, 1, length($needle) - 2);
+
+    return preg_replace("#^{$pattern}|{$pattern}$#", "", $haystack);
+}
+
+function trimLeft($haystack, $needle)
+{
+    if (isExpression($needle)) {
+        return trimLeftWithExpression($haystack, $needle);
+    }
+
+    return trimLeftWithString($haystack, $needle);
+}
+
+function trimLeftWithString($haystack, $needle)
+{
+    return ltrim($haystack, $needle);
+}
+
+function trimLeftWithExpression($haystack, $needle)
+{
+    $pattern = slice($needle, 1, length($needle) - 2);
+
+    return preg_replace("#^{$pattern}#", "", $haystack);
+}
+
+function trimRight($haystack, $needle)
+{
+    if (isExpression($needle)) {
+        return trimRightWithExpression($haystack, $needle);
+    }
+
+    return trimRightWithString($haystack, $needle);
+}
+
+function trimRightWithString($haystack, $needle)
+{
+    return rtrim($haystack, $needle);
+}
+
+function trimRightWithExpression($haystack, $needle)
+{
+    $pattern = slice($needle, 1, length($needle) - 2);
+
+    return preg_replace("#{$pattern}$#", "", $haystack);
+}
