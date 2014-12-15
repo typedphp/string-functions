@@ -25,6 +25,9 @@ Functions:
 - `replace`
 - `slice`
 - `split`
+- `trim`
+- `trimLeft`
+- `trimRight`
 
 ## Installation
 
