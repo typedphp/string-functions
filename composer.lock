@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fce04485fa441678db3c1a9c38f580b1",
+    "hash": "953c1f4d5e763196d3d090b7bf07739b",
     "packages": [
         {
             "name": "typedphp/type-functions",
@@ -846,7 +846,5 @@
     "platform": {
         "php": ">=5.4.0"
     },
-    "platform-dev": {
-        "php": ">=5.5.0"
-    }
+    "platform-dev": []
 }
