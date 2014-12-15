@@ -1,0 +1,32 @@
+{
+    "name": "typedphp/string-functions",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher Pitt",
+            "email": "cgpitt@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "typedphp/type-functions": "*"
+    },
+    "autoload": {
+        "files": [
+            "src/StringFunctions.php"
+        ]
+    },
+    "require-dev": {
+        "php": ">=5.5.0",
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload-dev": {
+        "files": [
+            "tests/Test.php"
+        ],
+        "psr-4": {
+            "TypedPHP\\Functions\\StringFunctions\\Test\\": "tests"
+        }
+    }
+}
