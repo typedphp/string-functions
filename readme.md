@@ -29,6 +29,10 @@ Functions:
 - `trimLeft(string $haystack, string $needle) → string`
 - `trimRight(string $haystack, string $needle) → string`
 
+Caveats:
+
+- Every `$needle` can be a normal string or a regular expression string.
+
 ## Installation
 
 ```sh
