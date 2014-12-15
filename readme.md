@@ -17,17 +17,17 @@ StringFunctions\replace("a long string", "long", "enormous"); // "a enormous str
 
 Functions:
 
-- `startsWith`
-- `endsWith`
-- `indexOf`
-- `length`
-- `matches`
-- `replace`
-- `slice`
-- `split`
-- `trim`
-- `trimLeft`
-- `trimRight`
+- `startsWith(string $haystack, string $needle) → bool`
+- `endsWith(string $haystack, string $needle) → bool`
+- `indexOf(string $haystack, string $needle, int $offset = 0) → int`
+- `length(string $string) → int`
+- `matches(string $haystack, string $needle) → bool`
+- `replace(string $haystack, string|array $needle, string|array $replacement) → string`
+- `slice(string $string, int $offset = 0, int $limit = 0) → string`
+- `split(string $haystack, string|null $needle = null, int $limit = 0) → array`
+- `trim(string $haystack, string $needle) → string`
+- `trimLeft(string $haystack, string $needle) → string`
+- `trimRight(string $haystack, string $needle) → string`
 
 ## Installation
 
