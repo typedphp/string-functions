@@ -128,8 +128,9 @@ function indexOf($haystack, $needle, $offset = 0)
 function indexOfString($haystack, $needle, $offset = 0)
 {
     $index = -1;
+    $match = strpos($haystack, $needle, $offset);
 
-    if (($match = strpos($haystack, $needle, $offset)) !== false) {
+    if ($match !== false) {
         $index = $match;
     }
 
@@ -147,7 +148,12 @@ function indexOfExpression($haystack, $needle, $offset = 0)
 {
     $index = -1;
 
-    if (preg_match($needle, $haystack, $matches, PREG_OFFSET_CAPTURE, $offset)) {
+    $match = preg_match(
+        $needle, $haystack, $matches,
+        PREG_OFFSET_CAPTURE, $offset
+    );
+
+    if ($match) {
         $index = $matches[0][1];
     }
 
@@ -219,14 +225,20 @@ function matchesExpression($haystack, $needle)
 function replace($haystack, $needle, $replacement)
 {
     if (isArray($needle) and isArray($replacement)) {
-        return replaceWithArray($haystack, $needle, $replacement);
+        return replaceWithArray(
+            $haystack, $needle, $replacement
+        );
     }
 
     if (isExpression($needle)) {
-        return replaceWithExpression($haystack, $needle, $replacement);
+        return replaceWithExpression(
+            $haystack, $needle, $replacement
+        );
     }
 
-    return replaceWithString($haystack, $needle, $replacement);
+    return replaceWithString(
+        $haystack, $needle, $replacement
+    );
 }
 
 /**
@@ -266,7 +278,9 @@ function replaceWithString($haystack, $needle, $replacement)
  */
 function replaceWithExpression($haystack, $needle, $replacement)
 {
-    return (string) preg_replace($needle, $replacement, $haystack);
+    return (string) preg_replace(
+        $needle, $replacement, $haystack
+    );
 }
 
 /**
@@ -388,7 +402,9 @@ function trimWithExpression($haystack, $needle)
 {
     $pattern = slice($needle, 1, length($needle) - 2);
 
-    return (string) preg_replace("#^{$pattern}|{$pattern}$#", "", $haystack);
+    return (string) preg_replace(
+        "#^{$pattern}|{$pattern}$#", "", $haystack
+    );
 }
 
 /**
@@ -427,7 +443,9 @@ function trimLeftWithExpression($haystack, $needle)
 {
     $pattern = slice($needle, 1, length($needle) - 2);
 
-    return (string) preg_replace("#^{$pattern}#", "", $haystack);
+    return (string) preg_replace(
+        "#^{$pattern}#", "", $haystack
+    );
 }
 
 /**
@@ -466,5 +484,7 @@ function trimRightWithExpression($haystack, $needle)
 {
     $pattern = slice($needle, 1, length($needle) - 2);
 
-    return (string) preg_replace("#{$pattern}$#", "", $haystack);
+    return (string) preg_replace(
+        "#{$pattern}$#", "", $haystack
+    );
 }
